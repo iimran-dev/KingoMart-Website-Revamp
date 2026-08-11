@@ -1,0 +1,490 @@
+export const navLinks = [
+  { label: "Categories", href: "#categories" },
+  { label: "Import Zone", href: "#import" },
+  { label: "Suppliers", href: "#suppliers" },
+  { label: "Deals", href: "#deals" },
+  { label: "Industries", href: "#industries" },
+  { label: "Logistics", href: "#logistics" },
+  { label: "Contact", href: "#footer" },
+] as const;
+
+export const megaMenuCategories = [
+  {
+    title: "Food & Beverage",
+    items: [
+      { name: "Frozen Chicken", count: "2,400+" },
+      { name: "Beverages", count: "1,800+" },
+      { name: "Dairy Products", count: "1,200+" },
+      { name: "Rice & Grains", count: "950+" },
+    ],
+  },
+  {
+    title: "Fresh Produce",
+    items: [
+      { name: "Fruits", count: "800+" },
+      { name: "Vegetables", count: "700+" },
+      { name: "Seafood", count: "600+" },
+      { name: "Meat & Poultry", count: "500+" },
+    ],
+  },
+  {
+    title: "Supplies",
+    items: [
+      { name: "Restaurant Supplies", count: "1,500+" },
+      { name: "Retail Store Supplies", count: "1,100+" },
+      { name: "Packaging", count: "900+" },
+      { name: "Cleaning Products", count: "750+" },
+    ],
+  },
+];
+
+export const heroStats = [
+  { value: 25000, suffix: "+", label: "Products" },
+  { value: 850, suffix: "+", label: "Suppliers" },
+  { value: 12, suffix: "", label: "Countries" },
+  { value: 50000, suffix: "+", label: "Buyers" },
+];
+
+export const trustItems = [
+  {
+    icon: "ShieldCheck" as const,
+    title: "Verified Suppliers",
+    description: "Every supplier undergoes rigorous verification and quality checks.",
+  },
+  {
+    icon: "Truck" as const,
+    title: "Shared Logistics",
+    description: "Reduce shipping costs through our smart shared logistics network.",
+  },
+  {
+    icon: "Lock" as const,
+    title: "Secure Payments",
+    description: "Trade protection with escrow payments and fraud prevention.",
+  },
+  {
+    icon: "Globe" as const,
+    title: "Trade Protection",
+    description: "Full buyer protection with money-back guarantee on every order.",
+  },
+  {
+    icon: "Headphones" as const,
+    title: "Dedicated Support",
+    description: "24/7 multilingual support team for all your trade needs.",
+  },
+];
+
+export const quickFilters = [
+  "Frozen Chicken",
+  "Beverages",
+  "Dairy",
+  "Rice",
+  "Restaurant Supplies",
+  "Retail Store Supplies",
+];
+
+export const categories = [
+  {
+    name: "Meat & Poultry",
+    productCount: "4,200+",
+    supplierCount: "120+",
+    image: "/categories/meat.jpg",
+    color: "from-red-50 to-orange-50",
+  },
+  {
+    name: "Beverages",
+    productCount: "3,800+",
+    supplierCount: "95+",
+    image: "/categories/beverages.jpg",
+    color: "from-amber-50 to-yellow-50",
+  },
+  {
+    name: "Dairy",
+    productCount: "2,100+",
+    supplierCount: "78+",
+    image: "/categories/dairy.jpg",
+    color: "from-blue-50 to-cyan-50",
+  },
+  {
+    name: "Fruits & Vegetables",
+    productCount: "1,800+",
+    supplierCount: "65+",
+    image: "/categories/fruits.jpg",
+    color: "from-green-50 to-emerald-50",
+  },
+  {
+    name: "Grocery",
+    productCount: "5,600+",
+    supplierCount: "150+",
+    image: "/categories/grocery.jpg",
+    color: "from-orange-50 to-amber-50",
+  },
+  {
+    name: "Seafood",
+    productCount: "1,400+",
+    supplierCount: "55+",
+    image: "/categories/seafood.jpg",
+    color: "from-teal-50 to-cyan-50",
+  },
+];
+
+export const features = [
+  {
+    icon: "TrendingDown" as const,
+    title: "Better Prices",
+    description:
+      "Access factory-direct pricing from 850+ verified global suppliers. Eliminate middlemen and reduce costs by up to 30%.",
+    metric: "30% lower costs",
+  },
+  {
+    icon: "Share2" as const,
+    title: "Shared Logistics",
+    description:
+      "Split shipping costs with other buyers through our smart logistics network. Full-container sharing with real-time tracking.",
+    metric: "40% savings on shipping",
+  },
+  {
+    icon: "BadgeCheck" as const,
+    title: "Verified Suppliers",
+    description:
+      "Every supplier is vetted through our multi-step verification process including factory audits and quality certifications.",
+    metric: "100% verified",
+  },
+  {
+    icon: "BarChart3" as const,
+    title: "Business Growth",
+    description:
+      "Scale your business with data-driven insights, market analytics, and automated reorder recommendations tailored to your needs.",
+    metric: "3x faster scaling",
+  },
+];
+
+export const logisticsRoutes = [
+  {
+    from: "Algiers",
+    to: "Oran",
+    distance: "400 km",
+    seats: 12,
+    totalSeats: 20,
+    savings: "35%",
+    status: "Loading" as const,
+    eta: "2h 30m",
+  },
+  {
+    from: "Algiers",
+    to: "Constantine",
+    distance: "320 km",
+    seats: 5,
+    totalSeats: 20,
+    savings: "40%",
+    status: "In Transit" as const,
+    eta: "4h 15m",
+  },
+  {
+    from: "Algiers",
+    to: "Blida",
+    distance: "45 km",
+    seats: 18,
+    totalSeats: 20,
+    savings: "25%",
+    status: "Departing" as const,
+    eta: "45m",
+  },
+];
+
+export const supplierJourney = [
+  {
+    icon: "Factory" as const,
+    title: "Factory",
+    description: "Products sourced directly from verified manufacturers.",
+  },
+  {
+    icon: "Package" as const,
+    title: "Container",
+    description: "Professional container loading and documentation.",
+  },
+  {
+    icon: "Ship" as const,
+    title: "Port",
+    description: "Ocean freight from global ports to Algeria.",
+  },
+  {
+    icon: "FileCheck" as const,
+    title: "Customs",
+    description: "Streamlined customs clearance and compliance.",
+  },
+  {
+    icon: "Truck" as const,
+    title: "Shared Truck",
+    description: "Last-mile delivery via shared logistics.",
+  },
+  {
+    icon: "Store" as const,
+    title: "Buyer",
+    description: "Delivered to your warehouse or store.",
+  },
+];
+
+export const importOpportunities = [
+  {
+    product: "Brazilian Chicken",
+    origin: "Brazil",
+    flag: "🇧🇷",
+    status: "In Transit" as const,
+    arrival: "Aug 15, 2025",
+    quantity: "40ft Container",
+    progress: 65,
+    supplier: "AgroBrasil Exports",
+    price: "$2,800/ton",
+  },
+  {
+    product: "Sunflower Oil",
+    origin: "Ukraine",
+    flag: "🇺🇦",
+    status: "Loading" as const,
+    arrival: "Sep 2, 2025",
+    quantity: "20ft Container",
+    progress: 25,
+    supplier: "UkraineOil Trading",
+    price: "$1,050/ton",
+  },
+  {
+    product: "Thai Rice",
+    origin: "Thailand",
+    flag: "🇹🇭",
+    status: "Customs" as const,
+    arrival: "Jul 28, 2025",
+    quantity: "40ft Container",
+    progress: 85,
+    supplier: "Thai Grain Co.",
+    price: "$620/ton",
+  },
+];
+
+export const wholesaleDeals = [
+  {
+    product: "Frozen Chicken Thighs",
+    image: "/deals/chicken.jpg",
+    moq: "500 kg",
+    price: "$2.15",
+    unit: "/kg",
+    discount: "18% OFF",
+    supplier: "PoultryPro Brasil",
+    country: "Brazil",
+    flag: "🇧🇷",
+    category: "Meat & Poultry",
+  },
+  {
+    product: "Sparkling Water (24-Pack)",
+    image: "/deals/water.jpg",
+    moq: "200 cases",
+    price: "$8.50",
+    unit: "/case",
+    discount: "12% OFF",
+    supplier: "AquaSource Europe",
+    country: "France",
+    flag: "🇫🇷",
+    category: "Beverages",
+  },
+  {
+    product: "UHT Full Cream Milk",
+    image: "/deals/milk.jpg",
+    moq: "1,000 units",
+    price: "$0.85",
+    unit: "/unit",
+    discount: "15% OFF",
+    supplier: "DairyMax Netherlands",
+    country: "Netherlands",
+    flag: "🇳🇱",
+    category: "Dairy",
+  },
+  {
+    product: "Basmati Rice Premium",
+    image: "/deals/rice.jpg",
+    moq: "2 tons",
+    price: "$1.20",
+    unit: "/kg",
+    discount: "22% OFF",
+    supplier: "IndiaGrain Export",
+    country: "India",
+    flag: "🇮🇳",
+    category: "Grocery",
+  },
+];
+
+export const suppliers = [
+  {
+    name: "PoultryPro Brasil",
+    country: "Brazil",
+    flag: "🇧🇷",
+    category: "Meat & Poultry",
+    years: 4,
+    verified: true,
+    products: 120,
+  },
+  {
+    name: "AgroBrasil Exports",
+    country: "Brazil",
+    flag: "🇧🇷",
+    category: "Agriculture",
+    years: 6,
+    verified: true,
+    products: 85,
+  },
+  {
+    name: "AquaSource Europe",
+    country: "France",
+    flag: "🇫🇷",
+    category: "Beverages",
+    years: 3,
+    verified: true,
+    products: 65,
+  },
+  {
+    name: "DairyMax Netherlands",
+    country: "Netherlands",
+    flag: "🇳🇱",
+    category: "Dairy",
+    years: 5,
+    verified: true,
+    products: 45,
+  },
+  {
+    name: "IndiaGrain Export",
+    country: "India",
+    flag: "🇮🇳",
+    category: "Grains & Rice",
+    years: 7,
+    verified: true,
+    products: 200,
+  },
+  {
+    name: "Thai Grain Co.",
+    country: "Thailand",
+    flag: "🇹🇭",
+    category: "Rice & Grains",
+    years: 5,
+    verified: true,
+    products: 150,
+  },
+  {
+    name: "UkraineOil Trading",
+    country: "Ukraine",
+    flag: "🇺🇦",
+    category: "Oils & Fats",
+    years: 3,
+    verified: true,
+    products: 30,
+  },
+  {
+    name: "TurkeyFood Export",
+    country: "Turkey",
+    flag: "🇹🇷",
+    category: "Confectionery",
+    years: 4,
+    verified: true,
+    products: 95,
+  },
+  {
+    name: "UAE Fresh Foods",
+    country: "UAE",
+    flag: "🇦🇪",
+    category: "Mixed Foods",
+    years: 2,
+    verified: true,
+    products: 110,
+  },
+  {
+    name: "ChinaPack Solutions",
+    country: "China",
+    flag: "🇨🇳",
+    category: "Packaging",
+    years: 6,
+    verified: true,
+    products: 300,
+  },
+];
+
+export const industries = [
+  {
+    icon: "ShoppingBag" as const,
+    name: "Retail Stores",
+    description: "Stock your shelves with verified wholesale products at competitive prices.",
+  },
+  {
+    icon: "UtensilsCrossed" as const,
+    name: "Restaurants",
+    description: "Source premium ingredients in bulk with reliable delivery schedules.",
+  },
+  {
+    icon: "Hotel" as const,
+    name: "Hotels",
+    description: "Hotel supply chains made simple with one-stop bulk ordering.",
+  },
+  {
+    icon: "Warehouse" as const,
+    name: "Distributors",
+    description: "Expand your product catalog with access to global manufacturers.",
+  },
+  {
+    icon: "Store" as const,
+    name: "Supermarkets",
+    description: "Full-category sourcing with volume discounts and logistics support.",
+  },
+  {
+    icon: "Coffee" as const,
+    name: "Cafes",
+    description: "Specialty supplies for coffee shops, bakeries, and dessert bars.",
+  },
+];
+
+export const statistics = [
+  { value: 25000, suffix: "+", label: "Products" },
+  { value: 850, suffix: "+", label: "Verified Suppliers" },
+  { value: 12, suffix: "", label: "Source Countries" },
+  { value: 50000, suffix: "+", label: "Active Buyers" },
+  { value: 100, suffix: "+", label: "Truck Loads Monthly" },
+];
+
+export const testimonials = [
+  {
+    name: "Karim Benali",
+    company: "DistribAl",
+    country: "Algeria",
+    type: "Distributor",
+    image: "/testimonials/karim.jpg",
+    quote:
+      "KingoMart transformed how we source products. The shared logistics alone saved us 35% on shipping costs across our distribution network.",
+    metric: "35% lower logistics costs",
+  },
+  {
+    name: "Sofia Meziane",
+    company: "Le Jardin Restaurant",
+    country: "Algeria",
+    type: "Restaurant",
+    image: "/testimonials/sofia.jpg",
+    quote:
+      "We source all our kitchen supplies through KingoMart. The quality is consistent, pricing is transparent, and delivery is always on time.",
+    metric: "18% lower sourcing costs",
+  },
+  {
+    name: "Yacine Hadj",
+    company: "CityMart",
+    country: "Algeria",
+    type: "Retailer",
+    image: "/testimonials/yacine.jpg",
+    quote:
+      "From frozen goods to beverages, everything arrives on schedule. The import tracking system gives us complete visibility into our supply chain.",
+    metric: "3x faster restocking",
+  },
+];
+
+export const footerLinks = {
+  Products: ["Categories", "Wholesale Products", "Deals", "New Arrivals"],
+  Suppliers: ["Become a Supplier", "Supplier Directory", "Supplier Verification"],
+  "Import Zone": ["Import Opportunities", "Shipments", "Logistics"],
+  Industries: ["Retail", "Restaurants", "Hotels", "Supermarkets"],
+  Services: ["Trade Protection", "Shared Logistics", "Payments"],
+  Company: ["About", "Contact", "Careers"],
+  Support: ["Help Center", "FAQ", "Contact Support"],
+  Legal: ["Privacy", "Terms", "Cookies"],
+};
