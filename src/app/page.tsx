@@ -1,31 +1,47 @@
-'use client'
+'use client';
+
+import { Header } from '@/components/layout/header';
+import { Footer } from '@/components/layout/footer';
+import { HeroSection } from '@/components/hero/hero-section';
+import { TrustSection } from '@/components/sections/trust-section';
+import { SearchSection } from '@/components/sections/search-section';
+import { CategoriesSection } from '@/components/sections/categories-section';
+import { FeaturesSection } from '@/components/sections/features-section';
+import { LogisticsSection } from '@/components/sections/logistics-section';
+import { SupplierJourney } from '@/components/sections/supplier-journey';
+import { ImportOpportunities } from '@/components/sections/import-opportunities';
+import { DealsSection } from '@/components/sections/deals-section';
+import { VerifiedSuppliers } from '@/components/sections/verified-suppliers';
+import { IndustriesSection } from '@/components/sections/industries';
+import { MobileAppSection } from '@/components/sections/mobile-app';
+import { StatsSection } from '@/components/sections/stats-section';
+import { TestimonialsSection } from '@/components/sections/testimonials';
+import { AIBuyingAssistantSection } from '@/components/sections/ai-buying-assistant';
+import { NewsletterSection } from '@/components/sections/newsletter';
 
 export default function Home() {
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      minHeight: '100vh',
-      gap: '2rem',
-      padding: '1rem'
-    }}>
-      <div style={{
-        position: 'relative',
-        width: '6rem',
-        height: '6rem'
-      }}>
-        <img
-          src="/logo.svg"
-          alt="Z.ai Logo"
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'contain'
-          }}
-        />
-      </div>
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-1">
+        <HeroSection />
+        <TrustSection />
+        <SearchSection />
+        <CategoriesSection />
+        <FeaturesSection />
+        <LogisticsSection />
+        <SupplierJourney />
+        <ImportOpportunities />
+        <DealsSection />
+        <VerifiedSuppliers />
+        <IndustriesSection />
+        <MobileAppSection />
+        <StatsSection />
+        <TestimonialsSection />
+        <AIBuyingAssistantSection />
+        <NewsletterSection />
+      </main>
+      <Footer />
     </div>
-  )
+  );
 }
