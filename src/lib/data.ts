@@ -216,6 +216,14 @@ export const supplierJourney = [
   },
 ];
 
+export const tradeHubs = [
+  { country: "China", flag: "🇨🇳" },
+  { country: "UAE", flag: "🇦🇪" },
+  { country: "Turkey", flag: "🇹🇷" },
+  { country: "Spain", flag: "🇪🇸" },
+  { country: "Algeria", flag: "🇩🇿" },
+];
+
 export const importOpportunities = [
   {
     product: "Brazilian Chicken",

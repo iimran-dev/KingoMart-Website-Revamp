@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Truck, ChevronRight } from "lucide-react";
 import { Container } from "@/components/layout/container";
+import { SectionHeading } from "@/components/ui/section-heading";
 import {
   upcomingImportOpportunities,
   liveTruckLoads,
@@ -11,21 +12,30 @@ import {
 
 export function LogisticsSection() {
   return (
-    <section id="logistics" className="py-20 sm:py-24 lg:py-28 bg-white">
+    <section id="logistics" className="py-10 sm:py-14 lg:py-16 bg-white">
       <Container>
+        {/* Left-Aligned Section Title */}
+        <SectionHeading
+          align="left"
+          eyebrow="Smart Logistics & Trade"
+          title="Shared Shipping & Live Bulk Deals"
+          description="Join live truck loads, pre-book upcoming container imports, and secure high-demand wholesale pricing."
+          className="mb-8 sm:mb-10 max-w-2xl"
+        />
+
         {/* 3 Main Card Columns Grid with generous gap */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 xl:gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6 xl:gap-6 items-stretch">
           {/* Column 1: Upcoming Import Opportunities */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45, ease: "easeOut" }}
-            className="rounded-3xl border border-slate-100 bg-[#F8FAFC] p-6 sm:p-7 flex flex-col justify-between h-full shadow-2xs"
+            className="rounded-3xl border border-slate-100 bg-[#F8FAFC] p-5 sm:p-6 flex flex-col justify-between h-full shadow-2xs"
           >
             <div>
               {/* Header */}
-              <div className="flex items-start justify-between mb-6 pb-2">
+              <div className="flex items-start justify-between mb-5 pb-2">
                 <div>
                   <h3 className="text-base sm:text-lg lg:text-xl font-bold text-slate-900 font-display leading-snug">
                     Upcoming Import Opportunities
@@ -44,14 +54,14 @@ export function LogisticsSection() {
               </div>
 
               {/* Items List */}
-              <div className="space-y-4">
+              <div className="space-y-3.5">
                 {upcomingImportOpportunities.map((item) => (
                   <div
                     key={item.title}
-                    className="rounded-2xl border border-slate-100/90 bg-white p-4 flex items-center justify-between gap-3.5 shadow-2xs hover:shadow-md transition-shadow"
+                    className="rounded-2xl border border-slate-100/90 bg-white p-3.5 sm:p-4 flex items-center justify-between gap-3 shadow-2xs hover:shadow-md transition-shadow"
                   >
                     <div className="flex items-center gap-3.5 min-w-0">
-                      <div className="h-14 w-14 shrink-0 flex items-center justify-center p-1 bg-slate-50/80 rounded-xl border border-slate-100">
+                      <div className="h-12 w-12 sm:h-14 sm:w-14 shrink-0 flex items-center justify-center p-1 bg-slate-50/80 rounded-xl border border-slate-100">
                         <img
                           src={item.image}
                           alt={item.title}
@@ -77,7 +87,7 @@ export function LogisticsSection() {
 
                     <button
                       type="button"
-                      className="rounded-xl border border-slate-200 bg-white hover:bg-slate-50 px-3.5 py-2 text-xs font-bold text-slate-800 transition-colors shadow-2xs shrink-0 cursor-pointer"
+                      className="rounded-xl border border-slate-200 bg-white hover:bg-slate-50 px-3 py-1.5 text-xs font-bold text-slate-800 transition-colors shadow-2xs shrink-0 cursor-pointer"
                     >
                       Reserve Now
                     </button>
@@ -93,11 +103,11 @@ export function LogisticsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45, delay: 0.1, ease: "easeOut" }}
-            className="rounded-3xl border border-slate-100 bg-[#F8FAFC] p-6 sm:p-7 flex flex-col justify-between h-full shadow-2xs"
+            className="rounded-3xl border border-slate-100 bg-[#F8FAFC] p-5 sm:p-6 flex flex-col justify-between h-full shadow-2xs"
           >
             <div>
               {/* Header */}
-              <div className="flex items-start justify-between mb-6 pb-2">
+              <div className="flex items-start justify-between mb-5 pb-2">
                 <div>
                   <h3 className="text-base sm:text-lg lg:text-xl font-bold text-slate-900 font-display leading-snug">
                     Join a Truck – Live Loads
@@ -116,15 +126,15 @@ export function LogisticsSection() {
               </div>
 
               {/* Items List */}
-              <div className="space-y-4">
+              <div className="space-y-3.5">
                 {liveTruckLoads.map((item) => (
                   <div
                     key={item.route}
-                    className="rounded-2xl border border-slate-100/90 bg-white p-4 flex items-center justify-between gap-3.5 shadow-2xs hover:shadow-md transition-shadow"
+                    className="rounded-2xl border border-slate-100/90 bg-white p-3.5 sm:p-4 flex items-center justify-between gap-3 shadow-2xs hover:shadow-md transition-shadow"
                   >
                     <div className="flex items-center gap-3.5 min-w-0">
-                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-slate-100/80 text-slate-700 border border-slate-200/50">
-                        <Truck className="size-6 text-slate-700" />
+                      <div className="flex h-12 w-12 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-xl bg-slate-100/80 text-slate-700 border border-slate-200/50">
+                        <Truck className="size-5 sm:size-6 text-slate-700" />
                       </div>
 
                       <div className="min-w-0">
@@ -137,7 +147,7 @@ export function LogisticsSection() {
                       </div>
                     </div>
 
-                    <span className="rounded-full bg-emerald-50 px-3.5 py-1.5 text-xs font-semibold text-emerald-600 border border-emerald-200/60 shrink-0">
+                    <span className="rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-600 border border-emerald-200/60 shrink-0">
                       {item.seatsLeft}
                     </span>
                   </div>
@@ -152,11 +162,11 @@ export function LogisticsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45, delay: 0.2, ease: "easeOut" }}
-            className="rounded-3xl border border-slate-100 bg-[#F8FAFC] p-6 sm:p-7 flex flex-col justify-between h-full shadow-2xs"
+            className="rounded-3xl border border-slate-100 bg-[#F8FAFC] p-5 sm:p-6 flex flex-col justify-between h-full shadow-2xs"
           >
             <div>
               {/* Header */}
-              <div className="flex items-start justify-between mb-6 pb-2">
+              <div className="flex items-start justify-between mb-5 pb-2">
                 <div>
                   <h3 className="text-base sm:text-lg lg:text-xl font-bold text-slate-900 font-display leading-snug">
                     Top Wholesale Deals
@@ -175,14 +185,14 @@ export function LogisticsSection() {
               </div>
 
               {/* Items List */}
-              <div className="space-y-4">
+              <div className="space-y-3.5">
                 {topWholesaleDeals.map((item) => (
                   <div
                     key={item.title}
-                    className="rounded-2xl border border-slate-100/90 bg-white p-4 flex items-center justify-between gap-3.5 shadow-2xs hover:shadow-md transition-shadow"
+                    className="rounded-2xl border border-slate-100/90 bg-white p-3.5 sm:p-4 flex items-center justify-between gap-3 shadow-2xs hover:shadow-md transition-shadow"
                   >
                     <div className="flex items-center gap-3.5 min-w-0">
-                      <div className="h-14 w-14 shrink-0 flex items-center justify-center p-1 bg-slate-50/80 rounded-xl border border-slate-100">
+                      <div className="h-12 w-12 sm:h-14 sm:w-14 shrink-0 flex items-center justify-center p-1 bg-slate-50/80 rounded-xl border border-slate-100">
                         <img
                           src={item.image}
                           alt={item.title}
