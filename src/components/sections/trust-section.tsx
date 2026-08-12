@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ShieldCheck, Truck, Lock, Globe, Headphones, Search } from "lucide-react";
+import { ShieldCheck, Truck, Lock, Globe, Headphones, Search, Building2 } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { trustBannerItems, popularSearches } from "@/lib/data";
 
@@ -12,6 +12,7 @@ const iconMap = {
   Lock,
   Globe,
   Headphones,
+  Building2,
 } as const;
 
 type IconKey = keyof typeof iconMap;
@@ -35,7 +36,7 @@ export function TrustSection() {
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-2 items-center divide-y sm:divide-y-0 lg:divide-x divide-slate-100">
             {trustBannerItems.map((item, index) => {
-              const Icon = iconMap[item.icon as IconKey];
+              const Icon = iconMap[item.icon as IconKey] || ShieldCheck;
               return (
                 <div
                   key={item.title}
