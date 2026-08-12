@@ -583,3 +583,35 @@ export const industriesWeServe = [
   { name: "Distributors", icon: "Warehouse" },
   { name: "Cafés", icon: "Coffee" },
 ];
+
+export const appFeatures = [
+  {
+    icon: "Package" as const,
+    title: "Order Tracking",
+    description: "Track orders in real time",
+  },
+  {
+    icon: "Truck" as const,
+    title: "Manage Shipments",
+    description: "Join & manage truck loads",
+  },
+  {
+    icon: "FileText" as const,
+    title: "Invoices & Payments",
+    description: "All your invoices in one place",
+  },
+  {
+    icon: "Bell" as const,
+    title: "Alerts & Offers",
+    description: "Never miss a deal",
+  },
+];
+
+export const platformStats = [
+  { value: "25,000+", label: "Products" },
+  { value: "850+", label: "Verified Suppliers" },
+  { value: "12", label: "Countries" },
+  { value: "50,000+", label: "Business Buyers" },
+  { value: "100+", label: "Truck Loads Monthly" },
+  { value: "98%", label: "On-time Delivery" },
+];

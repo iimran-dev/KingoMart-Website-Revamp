@@ -1,213 +1,172 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Smartphone,
-  Bell,
-  FileText,
-  Truck,
-  Shield,
-  QrCode,
-  ArrowRight,
-  Package,
-  CreditCard,
-  Home,
-  Search,
-  User,
-} from "lucide-react";
+import { Package, Truck, FileText, Bell, QrCode } from "lucide-react";
 import { Container } from "@/components/layout/container";
-import { SectionHeading } from "@/components/ui/section-heading";
-import { Button } from "@/components/ui/button";
+import { appFeatures, platformStats } from "@/lib/data";
 
-const appFeatures = [
-  {
-    icon: Package,
-    title: "Track Orders",
-    description: "Real-time tracking from warehouse to your doorstep.",
-  },
-  {
-    icon: FileText,
-    title: "Manage Invoices",
-    description: "Create, send, and track invoices in one place.",
-  },
-  {
-    icon: CreditCard,
-    title: "Secure Payments",
-    description: "End-to-end encrypted transactions with trade protection.",
-  },
-  {
-    icon: Truck,
-    title: "Shipments Tracking",
-    description: "Monitor all shipments and shared logistics routes live.",
-  },
-  {
-    icon: Bell,
-    title: "Smart Notifications",
-    description: "Never miss a deal, delivery, or price drop alert.",
-  },
-];
+const appIconMap = {
+  Package,
+  Truck,
+  FileText,
+  Bell,
+} as const;
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.5, ease: "easeOut" as const },
-  }),
-};
+type IconKey = keyof typeof appIconMap;
 
 export function MobileAppSection() {
   return (
-    <section className="overflow-hidden bg-navy py-20 lg:py-24">
+    <section id="mobile-app" className="py-16 sm:py-20 lg:py-24 bg-white">
       <Container>
-        <SectionHeading
-          eyebrow="Mobile App"
-          title="Manage Your Business On the Go"
-          description="Download the KingoMart app to track orders, manage invoices, and stay connected with suppliers — anywhere."
-          light={true}
-        />
+        {/* Top Dark Navy App Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="relative overflow-hidden rounded-3xl bg-[#06152a] p-6 sm:p-8 lg:p-10 shadow-xl border border-slate-800/80"
+        >
+          {/* Subtle Ambient Background Light */}
+          <div className="absolute right-1/3 top-1/2 -translate-y-1/2 w-96 h-96 bg-sky-500/10 blur-3xl rounded-full pointer-events-none" />
 
-        <div className="mt-14 grid items-center gap-16 lg:grid-cols-2">
-          {/* Left Column — Feature List */}
-          <div className="space-y-6">
-            {appFeatures.map((feature, i) => (
-              <motion.div
-                key={feature.title}
-                custom={i}
-                variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-40px" }}
-                className="flex items-start gap-4"
-              >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/10 text-white">
-                  <feature.icon className="size-5" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-white">{feature.title}</h3>
-                  <p className="mt-1 text-sm text-gray-400">
-                    {feature.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Left Content Area (Titles + 4 Feature Badges) */}
+            <div className="lg:col-span-6 flex flex-col justify-between">
+              <div>
+                <h3 className="text-sm font-semibold text-slate-300 tracking-wider uppercase">
+                  The KingoMart App
+                </h3>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white font-display tracking-tight mt-1 mb-8">
+                  Your Business, On the Go
+                </h2>
 
-          {/* Right Column — Phone Mockup */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.6, ease: "easeOut" as const }}
-            className="flex justify-center"
-          >
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{
-                duration: 4,
-                ease: "easeInOut" as const,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
-              className="relative mx-auto h-[560px] w-[280px] rounded-[40px] border-4 border-white/20 bg-white/5 p-3 shadow-2xl backdrop-blur-sm"
-            >
-              {/* Inner Screen */}
-              <div className="flex h-full w-full flex-col overflow-hidden rounded-[28px] bg-gradient-to-b from-white/10 to-white/5">
-                {/* Top Bar */}
-                <div className="flex items-center justify-between px-5 py-3">
-                  <span className="text-sm font-bold text-white">KingoMart</span>
-                  <div className="relative">
-                    <Bell className="size-4 text-gray-400" />
-                    <div className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-orange" />
-                  </div>
-                </div>
-
-                {/* Greeting */}
-                <div className="px-5 pt-2">
-                  <p className="text-xs text-gray-400">Welcome back,</p>
-                  <p className="text-sm font-semibold text-white">
-                    Ahmed &#x1F44B;
-                  </p>
-                </div>
-
-                {/* Order Cards */}
-                <div className="mt-4 flex flex-1 flex-col gap-2 px-4">
-                  <div className="flex items-center gap-3 rounded-xl border-l-[3px] border-l-orange bg-white/5 px-3 py-2.5">
-                    <div className="flex-1">
-                      <p className="text-[11px] font-semibold text-white">
-                        Frozen Chicken
-                      </p>
-                      <p className="text-[10px] text-gray-400">500kg — In Transit</p>
-                    </div>
-                    <div className="rounded-full bg-orange/20 px-2 py-0.5 text-[9px] font-bold text-orange">
-                      Live
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3 rounded-xl border-l-[3px] border-l-success bg-white/5 px-3 py-2.5">
-                    <div className="flex-1">
-                      <p className="text-[11px] font-semibold text-white">
-                        Basmati Rice
-                      </p>
-                      <p className="text-[10px] text-gray-400">2 tons — Delivered</p>
-                    </div>
-                    <div className="rounded-full bg-success/20 px-2 py-0.5 text-[9px] font-bold text-success">
-                      Done
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3 rounded-xl border-l-[3px] border-l-blue-400 bg-white/5 px-3 py-2.5">
-                    <div className="flex-1">
-                      <p className="text-[11px] font-semibold text-white">
-                        Sunflower Oil
-                      </p>
-                      <p className="text-[10px] text-gray-400">800L — Processing</p>
-                    </div>
-                    <div className="rounded-full bg-blue-400/20 px-2 py-0.5 text-[9px] font-bold text-blue-400">
-                      New
-                    </div>
-                  </div>
-                </div>
-
-                {/* Bottom Nav */}
-                <div className="mt-auto flex items-center justify-around border-t border-white/10 px-4 py-3">
-                  <Home className="size-5 text-orange" />
-                  <Search className="size-5 text-gray-500" />
-                  <Truck className="size-5 text-gray-500" />
-                  <User className="size-5 text-gray-500" />
+                {/* 4 Feature Items Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  {appFeatures.map((feature) => {
+                    const Icon = appIconMap[feature.icon as IconKey] || Package;
+                    return (
+                      <div
+                        key={feature.title}
+                        className="flex items-start gap-3.5"
+                      >
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 text-white border border-white/10 shadow-2xs">
+                          <Icon className="size-5" />
+                        </div>
+                        <div>
+                          <h4 className="text-xs sm:text-sm font-bold text-white font-display">
+                            {feature.title}
+                          </h4>
+                          <p className="text-[11px] sm:text-xs text-slate-300 mt-0.5 leading-relaxed">
+                            {feature.description}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
-        </div>
+            </div>
 
-        {/* App Store Buttons */}
-        <div className="mt-16 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Button
-            variant="outline"
-            className="gap-3 rounded-xl border-white/20 bg-transparent px-6 py-3 text-white hover:bg-white/10"
-          >
-            <Smartphone className="size-5" />
-            <div className="flex flex-col items-start">
-              <span className="text-[10px] leading-tight text-gray-400">
-                Download on the
-              </span>
-              <span className="text-sm font-semibold">App Store</span>
+            {/* Middle: 3-Phone Mockup */}
+            <div className="lg:col-span-3 flex justify-center py-2 lg:py-0">
+              <img
+                src="/phone-mockup.png"
+                alt="KingoMart Mobile App Mockup"
+                className="h-64 sm:h-72 lg:h-80 w-auto object-contain pointer-events-none drop-shadow-2xl hover:scale-105 transition-transform duration-300"
+              />
             </div>
-          </Button>
-          <Button
-            variant="outline"
-            className="gap-3 rounded-xl border-white/20 bg-transparent px-6 py-3 text-white hover:bg-white/10"
-          >
-            <Smartphone className="size-5" />
-            <div className="flex flex-col items-start">
-              <span className="text-[10px] leading-tight text-gray-400">
-                Get it on
-              </span>
-              <span className="text-sm font-semibold">Google Play</span>
+
+            {/* Right Side: Download Badges & QR Code */}
+            <div className="lg:col-span-3 flex flex-col justify-center items-start lg:items-end text-left lg:text-right">
+              <h3 className="text-lg sm:text-xl font-bold text-white font-display">
+                Download the App Today
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 mt-1 mb-5">
+                Available on Android & iOS
+              </p>
+
+              {/* Badges + QR Code Wrapper */}
+              <div className="flex items-center gap-3">
+                {/* Store Buttons */}
+                <div className="flex flex-col gap-2.5">
+                  {/* Google Play Button */}
+                  <a
+                    href="#google-play"
+                    className="inline-flex items-center gap-2.5 rounded-xl border border-white/20 bg-black/60 px-4 py-2 hover:bg-black/90 transition-all shadow-sm group"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="size-5 fill-white shrink-0"
+                    >
+                      <path d="M3.609 1.814L13.792 12 3.61 22.186c-.194-.176-.31-.43-.31-.72V2.534c0-.29.116-.544.31-.72zm11.31 9.057l2.424 2.424-9.878 5.679 7.454-8.103zm0-1.742L7.465 1.026l9.878 5.679-2.424 2.424zM18.736 12l2.366 1.356c.49.28.49.736 0 1.016L18.736 12z" />
+                    </svg>
+                    <div className="flex flex-col items-start text-left">
+                      <span className="text-[9px] uppercase tracking-wider text-slate-300 font-medium leading-tight">
+                        GET IT ON
+                      </span>
+                      <span className="text-xs font-bold text-white leading-tight">
+                        Google Play
+                      </span>
+                    </div>
+                  </a>
+
+                  {/* App Store Button */}
+                  <a
+                    href="#app-store"
+                    className="inline-flex items-center gap-2.5 rounded-xl border border-white/20 bg-black/60 px-4 py-2 hover:bg-black/90 transition-all shadow-sm group"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="size-5 fill-white shrink-0"
+                    >
+                      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.85c.66-.8 1.11-1.92.99-3.04-1 .04-2.17.67-2.85 1.46-.61.71-1.14 1.86-.99 2.96 1.11.09 2.22-.57 2.85-1.38z" />
+                    </svg>
+                    <div className="flex flex-col items-start text-left">
+                      <span className="text-[9px] uppercase tracking-wider text-slate-300 font-medium leading-tight">
+                        Download on the
+                      </span>
+                      <span className="text-xs font-bold text-white leading-tight">
+                        App Store
+                      </span>
+                    </div>
+                  </a>
+                </div>
+
+                {/* QR Code Box */}
+                <div className="h-20 w-20 shrink-0 bg-white p-2 rounded-2xl border border-slate-200 flex items-center justify-center shadow-md">
+                  <QrCode className="size-16 text-slate-900" />
+                </div>
+              </div>
             </div>
-          </Button>
-        </div>
+          </div>
+        </motion.div>
+
+        {/* Bottom Platform Stats Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+          className="mt-6 sm:mt-8 rounded-3xl border border-slate-100 bg-[#F8FAFC] p-6 sm:p-8 shadow-2xs"
+        >
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 divide-y sm:divide-y-0 lg:divide-x divide-slate-200/70 items-center text-center">
+            {platformStats.map((stat, index) => (
+              <div
+                key={stat.label}
+                className={`flex flex-col items-center pt-4 sm:pt-0 ${
+                  index !== 0 ? "lg:pl-4" : ""
+                }`}
+              >
+                <span className="text-2xl sm:text-3xl font-extrabold text-orange font-display leading-tight">
+                  {stat.value}
+                </span>
+                <span className="text-xs sm:text-sm font-semibold text-slate-600 mt-1 leading-tight">
+                  {stat.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </Container>
     </section>
   );

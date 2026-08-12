@@ -13,7 +13,6 @@ import { ImportOpportunities } from '@/components/sections/import-opportunities'
 import { DealsSection } from '@/components/sections/deals-section';
 import { VerifiedSuppliers } from '@/components/sections/verified-suppliers';
 import { MobileAppSection } from '@/components/sections/mobile-app';
-import { StatsSection } from '@/components/sections/stats-section';
 import { TestimonialsSection } from '@/components/sections/testimonials';
 import { AIBuyingAssistantSection } from '@/components/sections/ai-buying-assistant';
 import { NewsletterSection } from '@/components/sections/newsletter';
@@ -33,7 +32,6 @@ export default function Home() {
         <DealsSection />
         <VerifiedSuppliers />
         <MobileAppSection />
-        <StatsSection />
         <TestimonialsSection />
         <AIBuyingAssistantSection />
         <NewsletterSection />
