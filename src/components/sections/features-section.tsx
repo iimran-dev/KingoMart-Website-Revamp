@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { TrendingDown, Share2, ShieldCheck, BarChart3 } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { features } from "@/lib/data";
+import { assetPath } from "@/lib/utils";
 
 const iconMap = {
   TrendingDown,
@@ -71,7 +72,7 @@ export function FeaturesSection() {
           >
             {/* Background Image */}
             <img
-              src="/global-logistics-banner.png"
+              src={assetPath("/global-logistics-banner.png")}
               alt="Global Freight Logistics Banner"
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />

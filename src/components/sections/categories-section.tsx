@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { categories } from "@/lib/data";
-import { cn } from "@/lib/utils";
+import { cn, assetPath } from "@/lib/utils";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -58,7 +58,7 @@ export function CategoriesSection() {
                 {/* Product Image - Completely borderless & fully contained */}
                 <div className="relative h-28 sm:h-36 lg:h-40 w-full flex items-center justify-center p-1.5 mb-2.5 sm:mb-3 border-0">
                   <img
-                    src={cat.image}
+                    src={assetPath(cat.image)}
                     alt={cat.name}
                     className="max-h-full max-w-full object-contain pointer-events-none group-hover:scale-105 transition-transform duration-300 filter drop-shadow-sm"
                   />

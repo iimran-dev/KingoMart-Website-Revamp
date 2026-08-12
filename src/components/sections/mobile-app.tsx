@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Package, Truck, FileText, Bell, QrCode } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { appFeatures, platformStats } from "@/lib/data";
+import { assetPath } from "@/lib/utils";
 
 const appIconMap = {
   Package,
@@ -70,7 +71,7 @@ export function MobileAppSection() {
             {/* Middle: 3-Phone Mockup */}
             <div className="lg:col-span-3 flex justify-center py-2 lg:py-0">
               <img
-                src="/phone-mockup.png"
+                src={assetPath("/phone-mockup.png")}
                 alt="KingoMart Mobile App Mockup"
                 className="h-56 sm:h-64 lg:h-72 w-auto object-contain pointer-events-none drop-shadow-2xl hover:scale-105 transition-transform duration-300"
               />

@@ -6,6 +6,7 @@ import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { heroStats } from "@/lib/data";
+import { assetPath } from "@/lib/utils";
 
 const containerVariants = {
   hidden: {},
@@ -31,7 +32,7 @@ export function HeroSection() {
       {/* Hero Background Image with Lighter Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/hero-bg.jpg"
+          src={assetPath("/hero-bg.jpg")}
           alt="Global Shipping & Logistics Background"
           className="h-full w-full object-cover object-center"
         />

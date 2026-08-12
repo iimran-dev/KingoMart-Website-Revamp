@@ -1,12 +1,15 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  output: "standalone",
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  basePath: '/kingomart',
+  devIndicators: false,
+  reactStrictMode: false,
+  images: { 
+    unoptimized: true,
+  },
+  output: 'export',
   typescript: {
     ignoreBuildErrors: true,
   },
-  reactStrictMode: false,
 };
 
 export default nextConfig;

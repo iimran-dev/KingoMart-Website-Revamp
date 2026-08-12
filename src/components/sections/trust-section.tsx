@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ShieldCheck, Truck, Lock, Globe, Headphones, Search, Building2 } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { trustBannerItems, popularSearches } from "@/lib/data";
+import { assetPath } from "@/lib/utils";
 
 const iconMap = {
   ShieldCheck,
@@ -146,7 +147,7 @@ export function TrustSection() {
 
             {/* Transparent Truck Image */}
             <img
-              src="/truck.png"
+              src={assetPath("/truck.png")}
               alt="Join a Truck & Ship Smart"
               className="absolute -right-2 bottom-0 h-[90%] sm:h-[95%] w-auto max-w-[60%] sm:max-w-[55%] object-contain pointer-events-none drop-shadow-2xl z-0"
             />

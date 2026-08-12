@@ -9,6 +9,7 @@ import {
   liveTruckLoads,
   topWholesaleDeals,
 } from "@/lib/data";
+import { assetPath } from "@/lib/utils";
 
 export function LogisticsSection() {
   return (
@@ -63,7 +64,7 @@ export function LogisticsSection() {
                     <div className="flex items-center gap-3.5 min-w-0">
                       <div className="h-12 w-12 sm:h-14 sm:w-14 shrink-0 flex items-center justify-center p-1 bg-slate-50/80 rounded-xl border border-slate-100">
                         <img
-                          src={item.image}
+                          src={assetPath(item.image)}
                           alt={item.title}
                           className="max-h-full max-w-full object-contain mix-blend-multiply pointer-events-none"
                         />
@@ -194,7 +195,7 @@ export function LogisticsSection() {
                     <div className="flex items-center gap-3.5 min-w-0">
                       <div className="h-12 w-12 sm:h-14 sm:w-14 shrink-0 flex items-center justify-center p-1 bg-slate-50/80 rounded-xl border border-slate-100">
                         <img
-                          src={item.image}
+                          src={assetPath(item.image)}
                           alt={item.title}
                           className="max-h-full max-w-full object-contain mix-blend-multiply pointer-events-none"
                         />
