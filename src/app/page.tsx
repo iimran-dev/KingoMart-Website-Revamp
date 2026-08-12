@@ -4,7 +4,6 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { HeroSection } from '@/components/hero/hero-section';
 import { TrustSection } from '@/components/sections/trust-section';
-import { SearchSection } from '@/components/sections/search-section';
 import { CategoriesSection } from '@/components/sections/categories-section';
 import { FeaturesSection } from '@/components/sections/features-section';
 import { LogisticsSection } from '@/components/sections/logistics-section';
@@ -14,8 +13,6 @@ import { DealsSection } from '@/components/sections/deals-section';
 import { VerifiedSuppliers } from '@/components/sections/verified-suppliers';
 import { MobileAppSection } from '@/components/sections/mobile-app';
 import { TestimonialsSection } from '@/components/sections/testimonials';
-import { AIBuyingAssistantSection } from '@/components/sections/ai-buying-assistant';
-import { NewsletterSection } from '@/components/sections/newsletter';
 
 export default function Home() {
   return (
@@ -28,13 +25,13 @@ export default function Home() {
         <FeaturesSection />
         <LogisticsSection />
         <SupplierJourney />
-        <ImportOpportunities />
-        <DealsSection />
+
+        {/*<ImportOpportunities />*/}
+        {/*<DealsSection />*/}
+        
         <VerifiedSuppliers />
         <MobileAppSection />
         <TestimonialsSection />
-        <AIBuyingAssistantSection />
-        <NewsletterSection />
       </main>
       <Footer />
     </div>

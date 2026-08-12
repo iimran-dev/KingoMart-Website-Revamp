@@ -8,13 +8,16 @@ import {
   FileCheck,
   Truck,
   Store,
-  ChevronDown,
+  ArrowRight,
+  ShieldCheck,
+  Clock,
+  MapPin,
 } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { supplierJourney } from "@/lib/data";
 
-const iconMap: Record<string, React.ElementType> = {
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Factory,
   Package,
   Ship,
@@ -23,142 +26,146 @@ const iconMap: Record<string, React.ElementType> = {
   Store,
 };
 
-const tradeRoutes = [
-  { label: "China", sub: "🇨🇳" },
-  { label: "UAE", sub: "🇦🇪" },
-  { label: "Turkey", sub: "🇹🇷" },
-  { label: "Algeria", sub: "🇩🇿" },
+const tradeHubs = [
+  { country: "China", flag: "🇨🇳" },
+  { country: "UAE", flag: "🇦🇪" },
+  { country: "Turkey", flag: "🇹🇷" },
+  { country: "Spain", flag: "🇪🇸" },
+  { country: "Algeria", flag: "🇩🇿" },
 ];
 
 export function SupplierJourney() {
   return (
-    <section className="bg-navy py-20 lg:py-24" id="import">
+    <section id="import" className="py-20 sm:py-24 lg:py-28 bg-[#F8FAFC]">
       <Container>
+        {/* Section Header */}
         <SectionHeading
-          eyebrow="Supply Chain"
+          eyebrow="End-to-End Supply Chain"
           title="From Global Supplier To Your Warehouse"
-          light={true}
+          description="Track every step of your wholesale import — from factory floor sourcing to doorstep warehouse delivery."
         />
 
-        <div className="mt-14 lg:grid lg:grid-cols-2 lg:gap-16">
-          {/* Left: Timeline */}
-          <div className="space-y-0">
-            {supplierJourney.map((step, i) => {
-              const Icon = iconMap[step.icon];
-              const isLast = i === supplierJourney.length - 1;
+        {/* 6-Step Supply Chain Cards Grid (Mobile Swiper & Desktop Flow) */}
+        <div className="mt-12 sm:mt-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4 lg:gap-5">
+            {supplierJourney.map((step, index) => {
+              const Icon = iconMap[step.icon] || Factory;
+              const stepNumber = String(index + 1).padStart(2, "0");
 
               return (
                 <motion.div
                   key={step.title}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{
-                    duration: 0.5,
-                    ease: "easeOut" as const,
-                    delay: i * 0.15,
+                    duration: 0.45,
+                    delay: index * 0.08,
+                    ease: "easeOut",
                   }}
-                  className="flex items-start gap-4 relative pb-8 last:pb-0"
+                  className="group relative rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6 shadow-2xs hover:shadow-xl hover:shadow-orange/5 hover:border-orange/40 transition-all duration-300 flex flex-col justify-between h-full cursor-pointer"
                 >
-                  {/* Connector line */}
-                  {!isLast && (
-                    <div className="absolute left-[19px] top-12 bottom-0 w-px bg-white/20" />
-                  )}
+                  <div>
+                    {/* Top Row: Step Number & Arrow Connector */}
+                    <div className="flex items-center justify-between w-full mb-4">
+                      <span className="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-orange/10 text-xs font-black text-orange font-mono group-hover:bg-orange group-hover:text-white transition-colors">
+                        {stepNumber}
+                      </span>
+                      {index < supplierJourney.length - 1 && (
+                        <ArrowRight className="hidden lg:block size-4 text-slate-300 group-hover:text-orange group-hover:translate-x-0.5 transition-all" />
+                      )}
+                    </div>
 
-                  {/* Circle indicator */}
-                  <div className="relative shrink-0 w-10 h-10 rounded-full bg-orange/20 border-2 border-orange flex items-center justify-center text-orange">
-                    <Icon className="size-5" />
-                    <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-navy border border-white/20 text-[10px] font-semibold text-white flex items-center justify-center">
-                      {i + 1}
-                    </span>
-                  </div>
+                    {/* Step Icon */}
+                    <div className="h-12 w-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-700 group-hover:bg-orange/10 group-hover:text-orange group-hover:scale-105 transition-all mb-4">
+                      <Icon className="size-6 stroke-[1.75]" />
+                    </div>
 
-                  {/* Content */}
-                  <div className="pt-1">
-                    <h3 className="text-white font-display font-semibold">
+                    {/* Step Title */}
+                    <h3 className="text-base font-bold text-slate-900 font-display">
                       {step.title}
                     </h3>
-                    <p className="text-gray-400 text-sm mt-1">
+
+                    {/* Step Description */}
+                    <p className="mt-1.5 text-xs text-slate-500 leading-relaxed font-normal">
                       {step.description}
                     </p>
+                  </div>
+
+                  {/* Progress Line Indicator */}
+                  <div className="mt-5 w-full h-1 rounded-full bg-slate-100 overflow-hidden">
+                    <div
+                      className="h-full bg-orange rounded-full transition-all duration-500 group-hover:w-full"
+                      style={{ width: `${((index + 1) / 6) * 100}%` }}
+                    />
                   </div>
                 </motion.div>
               );
             })}
           </div>
+        </div>
 
-          {/* Right: Trade Network Visual */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" as const, delay: 0.3 }}
-            className="mt-12 lg:mt-0"
-          >
-            <div className="rounded-2xl bg-white/5 border border-white/10 p-8">
-              <h3 className="text-white font-display font-bold text-xl mb-8">
-                Global Trade Network
-              </h3>
-
-              {/* Trade route flow */}
-              <div className="flex items-center justify-between">
-                {tradeRoutes.map((route, i) => (
-                  <div key={route.label} className="flex items-center">
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{
-                        duration: 0.4,
-                        delay: 0.5 + i * 0.2,
-                      }}
-                      className="flex flex-col items-center gap-2"
-                    >
-                      <span className="text-3xl">{route.sub}</span>
-                      <span className="text-sm text-gray-300 font-medium">
-                        {route.label}
-                      </span>
-                    </motion.div>
-
-                    {i < tradeRoutes.length - 1 && (
-                      <motion.div
-                        initial={{ opacity: 0, scaleX: 0 }}
-                        whileInView={{ opacity: 1, scaleX: 1 }}
-                        viewport={{ once: true }}
-                        transition={{
-                          duration: 0.4,
-                          delay: 0.6 + i * 0.2,
-                        }}
-                        className="mx-3 flex flex-col items-center gap-1 shrink-0"
-                      >
-                        <div className="w-16 lg:w-20 h-px bg-gradient-to-r from-orange/60 to-orange/20" />
-                        <ChevronDown className="size-3 text-orange/40 rotate-[-90deg]" />
-                      </motion.div>
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              {/* Decorative stats */}
-              <div className="mt-10 grid grid-cols-2 gap-4">
-                {[
-                  { label: "Avg. Transit Time", value: "18–25 days" },
-                  { label: "Routes Active", value: "12+" },
-                ].map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="rounded-xl bg-white/5 border border-white/10 p-4"
+        {/* Global Trade Network Sub-Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+          className="mt-8 rounded-3xl border border-slate-200/80 bg-white p-6 sm:p-8 shadow-2xs flex flex-col lg:flex-row items-center justify-between gap-6"
+        >
+          {/* Left: Trade Hub Flow */}
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center sm:text-left">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-50 text-sky-600 border border-sky-100">
+              <MapPin className="size-5" />
+            </div>
+            <div>
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                Active Trade Corridors
+              </h4>
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mt-1">
+                {tradeHubs.map((hub, i) => (
+                  <span
+                    key={hub.country}
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-slate-800 bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-200/60"
                   >
-                    <p className="text-orange font-display font-bold text-lg">
-                      {stat.value}
-                    </p>
-                    <p className="text-gray-400 text-xs mt-1">{stat.label}</p>
-                  </div>
+                    <span>{hub.flag}</span>
+                    <span>{hub.country}</span>
+                    {i < tradeHubs.length - 1 && (
+                      <span className="text-slate-300 ml-1">➔</span>
+                    )}
+                  </span>
                 ))}
               </div>
             </div>
-          </motion.div>
-        </div>
+          </div>
+
+          {/* Right: Key Logistics Guarantees */}
+          <div className="flex items-center gap-6 sm:gap-8 pt-4 lg:pt-0 border-t lg:border-t-0 border-slate-100 w-full lg:w-auto justify-around lg:justify-end">
+            <div className="flex items-center gap-2.5">
+              <Clock className="size-5 text-orange" />
+              <div>
+                <span className="text-xs font-bold text-slate-900 block">
+                  18–25 Days
+                </span>
+                <span className="text-[11px] text-slate-400">
+                  Avg Ocean Freight
+                </span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2.5">
+              <ShieldCheck className="size-5 text-emerald-600" />
+              <div>
+                <span className="text-xs font-bold text-slate-900 block">
+                  100% Vetted
+                </span>
+                <span className="text-[11px] text-slate-400">
+                  Quality Guaranteed
+                </span>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </Container>
     </section>
   );

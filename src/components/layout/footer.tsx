@@ -2,8 +2,6 @@
 
 import { Facebook, Twitter, Linkedin, Instagram, Globe } from 'lucide-react';
 import { Container } from '@/components/layout/container';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
 import { footerLinks } from '@/lib/data';
 
 export function Footer() {
@@ -12,41 +10,23 @@ export function Footer() {
   return (
     <footer className="mt-auto bg-navy text-white">
       <Container>
-        {/* Top Section: Logo + Description + Newsletter */}
-        <div className="pt-16 pb-10 grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* Logo & Description */}
-          <div className="md:col-span-2">
-            <a href="/">
-              <span className="font-display font-extrabold text-xl tracking-tight text-white">
-                Kingo<span className="text-orange">Mart</span>
-              </span>
-            </a>
-            <p className="mt-4 text-gray-400 text-sm leading-relaxed max-w-lg">
-              The leading B2B wholesale marketplace connecting Algerian buyers
-              with verified global suppliers. Source products at factory-direct
-              prices with shared logistics and full trade protection.
-            </p>
-          </div>
-
-          {/* Newsletter */}
-          <div>
-            <h3 className="font-display font-semibold text-white mb-2 text-sm">
-              Stay Updated
-            </h3>
-            <p className="text-gray-400 text-xs mb-3">
-              Get the latest deals and market insights delivered to your inbox.
-            </p>
-            <div className="flex gap-2">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="bg-white/10 border-white/10 text-white placeholder:text-gray-500 h-9 text-sm focus-visible:border-orange/50 focus-visible:ring-orange/30"
-              />
-              <Button className="bg-orange-600 hover:bg-orange-700 text-white font-semibold h-9 px-4 shrink-0">
-                Subscribe
-              </Button>
-            </div>
-          </div>
+        {/* Top Section: Logo + Description */}
+        <div className="pt-16 pb-10">
+          <a href="/" className="inline-flex items-center gap-2.5">
+            <img
+              src="https://store.kingomart.com/logo.svg"
+              alt="KingoMart Logo"
+              className="h-8 w-8 object-cover object-left shrink-0"
+            />
+            <span className="font-display font-extrabold text-xl tracking-tight text-white">
+              Kingo<span className="text-orange">Mart</span>
+            </span>
+          </a>
+          <p className="mt-4 text-gray-400 text-sm leading-relaxed max-w-2xl">
+            The leading B2B wholesale marketplace connecting Algerian buyers
+            with verified global suppliers. Source products at factory-direct
+            prices with shared logistics and full trade protection.
+          </p>
         </div>
 
         {/* Divider */}

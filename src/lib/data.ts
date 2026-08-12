@@ -615,3 +615,24 @@ export const platformStats = [
   { value: "100+", label: "Truck Loads Monthly" },
   { value: "98%", label: "On-time Delivery" },
 ];
+
+export const buyersSayTestimonials = [
+  {
+    name: "Mohamed R.",
+    role: "Retail Buyer",
+    quote: "KingoMart helped us reduce our procurement cost by 23%. Great products and on-time delivery!",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80",
+  },
+  {
+    name: "Yacine B.",
+    role: "Distributor",
+    quote: "The shared truck system is amazing! It has reduced our logistics cost significantly.",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80",
+  },
+  {
+    name: "Karim T.",
+    role: "Restaurant Owner",
+    quote: "Wide range of products and verified suppliers. Our go-to platform for bulk buying.",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&auto=format&fit=crop&q=80",
+  },
+];
