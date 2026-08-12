@@ -45,115 +45,107 @@ export const heroStats = [
   { value: 50000, suffix: "+", label: "Buyers" },
 ];
 
-export const trustItems = [
+export const trustBannerItems = [
   {
     icon: "ShieldCheck" as const,
-    title: "Verified Suppliers",
-    description: "Every supplier undergoes rigorous verification and quality checks.",
+    title: "Verified & Trusted",
+    description: "Quality suppliers you can rely on",
   },
   {
     icon: "Truck" as const,
-    title: "Shared Logistics",
-    description: "Reduce shipping costs through our smart shared logistics network.",
+    title: "Shared Truck Logistics",
+    description: "Save more with shared shipments",
   },
   {
     icon: "Lock" as const,
     title: "Secure Payments",
-    description: "Trade protection with escrow payments and fraud prevention.",
+    description: "Safe & flexible payment options",
   },
   {
     icon: "Globe" as const,
-    title: "Trade Protection",
-    description: "Full buyer protection with money-back guarantee on every order.",
+    title: "Global Trade Network",
+    description: "Connecting Algeria to the world",
   },
   {
     icon: "Headphones" as const,
     title: "Dedicated Support",
-    description: "24/7 multilingual support team for all your trade needs.",
+    description: "Here to help your business grow",
   },
 ];
 
-export const quickFilters = [
+export const popularSearches = [
   "Frozen Chicken",
   "Beverages",
-  "Dairy",
+  "FMCG",
+  "Dairy Products",
   "Rice",
-  "Restaurant Supplies",
-  "Retail Store Supplies",
+  "Cooking Oil",
 ];
+
+export const quickFilters = popularSearches;
 
 export const categories = [
   {
     name: "Meat & Poultry",
-    productCount: "4,200+",
-    supplierCount: "120+",
-    image: "/categories/meat.jpg",
-    color: "from-red-50 to-orange-50",
+    productCount: "1,250+",
+    supplierCount: "210+",
+    image: "/categories/meat.png",
   },
   {
     name: "Beverages",
-    productCount: "3,800+",
-    supplierCount: "95+",
-    image: "/categories/beverages.jpg",
-    color: "from-amber-50 to-yellow-50",
+    productCount: "2,450+",
+    supplierCount: "180+",
+    image: "/categories/beverages.png",
   },
   {
-    name: "Dairy",
-    productCount: "2,100+",
-    supplierCount: "78+",
-    image: "/categories/dairy.jpg",
-    color: "from-blue-50 to-cyan-50",
+    name: "Dairy Products",
+    productCount: "980+",
+    supplierCount: "150+",
+    image: "/categories/dairy.png",
   },
   {
     name: "Fruits & Vegetables",
-    productCount: "1,800+",
-    supplierCount: "65+",
-    image: "/categories/fruits.jpg",
-    color: "from-green-50 to-emerald-50",
+    productCount: "1,200+",
+    supplierCount: "160+",
+    image: "/categories/fruits.png",
   },
   {
     name: "Grocery",
     productCount: "5,600+",
-    supplierCount: "150+",
-    image: "/categories/grocery.jpg",
-    color: "from-orange-50 to-amber-50",
+    supplierCount: "320+",
+    image: "/categories/grocery.png",
   },
   {
     name: "Seafood",
-    productCount: "1,400+",
-    supplierCount: "55+",
-    image: "/categories/seafood.jpg",
-    color: "from-teal-50 to-cyan-50",
+    productCount: "850+",
+    supplierCount: "120+",
+    image: "/categories/seafood.png",
   },
 ];
 
 export const features = [
   {
     icon: "TrendingDown" as const,
-    title: "Better Prices",
-    description:
-      "Access factory-direct pricing from 850+ verified global suppliers. Eliminate middlemen and reduce costs by up to 30%.",
+    title: "Better Wholesale Prices",
+    description: "Buy directly from trusted suppliers and save more.",
     metric: "30% lower costs",
   },
   {
     icon: "Share2" as const,
     title: "Shared Logistics",
-    description:
-      "Split shipping costs with other buyers through our smart logistics network. Full-container sharing with real-time tracking.",
+    description: "Share truck space and reduce transportation costs.",
     metric: "40% savings on shipping",
   },
   {
     icon: "BadgeCheck" as const,
     title: "Verified Suppliers",
-    description:
-      "Every supplier is vetted through our multi-step verification process including factory audits and quality certifications.",
+    description: "All suppliers are verified for quality and reliability.",
     metric: "100% verified",
   },
   {
     icon: "BarChart3" as const,
     title: "Business Growth",
-    description:
-      "Scale your business with data-driven insights, market analytics, and automated reorder recommendations tailored to your needs.",
+    description: "Tools and support to help your business grow faster.",
     metric: "3x faster scaling",
   },
 ];
@@ -488,3 +480,106 @@ export const footerLinks = {
   Support: ["Help Center", "FAQ", "Contact Support"],
   Legal: ["Privacy", "Terms", "Cookies"],
 };
+
+export const upcomingImportOpportunities = [
+  {
+    title: "Brazilian Chicken",
+    booked: "80%",
+    arriving: "Aug 28, 2025",
+    image: "/products/chicken.png",
+  },
+  {
+    title: "Sunflower Oil",
+    booked: "60%",
+    arriving: "Sep 05, 2025",
+    image: "/products/sunflower-oil.png",
+  },
+  {
+    title: "Thai White Rice",
+    booked: "40%",
+    arriving: "Sep 12, 2025",
+    image: "/products/thai-rice.png",
+  },
+];
+
+export const liveTruckLoads = [
+  {
+    route: "Algiers → Oran",
+    departing: "Aug 12, 2025",
+    seatsLeft: "3 Seats Left",
+  },
+  {
+    route: "Algiers → Constantine",
+    departing: "Aug 13, 2025",
+    seatsLeft: "5 Seats Left",
+  },
+  {
+    route: "Algiers → Blida",
+    departing: "Aug 14, 2025",
+    seatsLeft: "2 Seats Left",
+  },
+];
+
+export const topWholesaleDeals = [
+  {
+    title: "Frozen Chicken (10kg)",
+    moq: "100kg",
+    originalPrice: "2,400 DZD",
+    discountPrice: "1,950 DZD",
+    discount: "18% OFF",
+    image: "/products/chicken.png",
+  },
+  {
+    title: "Sunflower Oil (5L)",
+    moq: "50 Cartons",
+    originalPrice: "2,100 DZD",
+    discountPrice: "1,650 DZD",
+    discount: "21% OFF",
+    image: "/products/sunflower-oil.png",
+  },
+  {
+    title: "Coca Cola (24 x 330ml)",
+    moq: "100 Cartons",
+    originalPrice: "2,800 DZD",
+    discountPrice: "2,250 DZD",
+    discount: "20% OFF",
+    image: "/products/cola.png",
+  },
+];
+
+export const topVerifiedSuppliers = [
+  {
+    name: "Sadia",
+    years: "20+ Years",
+    flag: "🇧🇷",
+  },
+  {
+    name: "Almarai",
+    years: "15+ Years",
+    flag: "🇸🇦",
+  },
+  {
+    name: "Coca-Cola",
+    years: "30+ Years",
+    flag: "🇺🇸",
+  },
+  {
+    name: "Nestlé",
+    years: "20+ Years",
+    flag: "🇨🇭",
+  },
+  {
+    name: "PepsiCo",
+    years: "25+ Years",
+    flag: "🇺🇸",
+  },
+];
+
+export const industriesWeServe = [
+  { name: "Retail Stores", icon: "Store" },
+  { name: "Restaurants", icon: "UtensilsCrossed" },
+  { name: "Hotels", icon: "Hotel" },
+  { name: "Supermarkets", icon: "ShoppingBag" },
+  { name: "Distributors", icon: "Warehouse" },
+  { name: "Cafés", icon: "Coffee" },
+];

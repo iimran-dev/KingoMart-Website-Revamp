@@ -38,7 +38,7 @@ export function ImportOpportunities() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.15 }}
+              transition={{ duration: 0.5, ease: "easeOut" as const, delay: i * 0.15 }}
               className="rounded-2xl border border-border-light bg-white overflow-hidden"
             >
               {/* Gradient Header */}

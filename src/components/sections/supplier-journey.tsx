@@ -55,7 +55,7 @@ export function SupplierJourney() {
                   viewport={{ once: true }}
                   transition={{
                     duration: 0.5,
-                    ease: "easeOut",
+                    ease: "easeOut" as const,
                     delay: i * 0.15,
                   }}
                   className="flex items-start gap-4 relative pb-8 last:pb-0"
@@ -92,7 +92,7 @@ export function SupplierJourney() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" as const, delay: 0.3 }}
             className="mt-12 lg:mt-0"
           >
             <div className="rounded-2xl bg-white/5 border border-white/10 p-8">

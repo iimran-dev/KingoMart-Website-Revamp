@@ -12,7 +12,6 @@ import { SupplierJourney } from '@/components/sections/supplier-journey';
 import { ImportOpportunities } from '@/components/sections/import-opportunities';
 import { DealsSection } from '@/components/sections/deals-section';
 import { VerifiedSuppliers } from '@/components/sections/verified-suppliers';
-import { IndustriesSection } from '@/components/sections/industries';
 import { MobileAppSection } from '@/components/sections/mobile-app';
 import { StatsSection } from '@/components/sections/stats-section';
 import { TestimonialsSection } from '@/components/sections/testimonials';
@@ -26,7 +25,6 @@ export default function Home() {
       <main className="flex-1">
         <HeroSection />
         <TrustSection />
-        <SearchSection />
         <CategoriesSection />
         <FeaturesSection />
         <LogisticsSection />
@@ -34,7 +32,6 @@ export default function Home() {
         <ImportOpportunities />
         <DealsSection />
         <VerifiedSuppliers />
-        <IndustriesSection />
         <MobileAppSection />
         <StatsSection />
         <TestimonialsSection />

@@ -50,7 +50,7 @@ const messageVariants = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.2, duration: 0.4, ease: "easeOut" },
+    transition: { delay: i * 0.2, duration: 0.4, ease: "easeOut" as const },
   }),
 };
 
@@ -59,7 +59,7 @@ const featureCardVariants = {
   visible: (i: number) => ({
     opacity: 1,
     x: 0,
-    transition: { delay: i * 0.1, duration: 0.5, ease: "easeOut" },
+    transition: { delay: i * 0.1, duration: 0.5, ease: "easeOut" as const },
   }),
 };
 
@@ -81,7 +81,7 @@ export function AIBuyingAssistantSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            transition={{ duration: 0.5, ease: "easeOut" as const }}
             className="overflow-hidden rounded-2xl border border-border-light bg-white shadow-lg"
           >
             {/* Chat Header */}
@@ -221,7 +221,7 @@ export function AIBuyingAssistantSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
+              transition={{ duration: 0.5, ease: "easeOut" as const }}
               className="font-display text-xl font-bold text-navy"
             >
               How AI Sourcing Works
@@ -256,7 +256,7 @@ export function AIBuyingAssistantSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
+              transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" as const }}
               className="mt-10 flex flex-wrap items-center gap-4"
             >
               <Button className="rounded-xl bg-orange text-white hover:bg-orange/90">

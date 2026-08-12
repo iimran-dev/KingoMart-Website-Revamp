@@ -1,37 +1,47 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Beef, GlassWater, Milk, Apple, ShoppingBasket, Fish } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import { Container } from "@/components/layout/container";
-import { SectionHeading } from "@/components/ui/section-heading";
-import { Button } from "@/components/ui/button";
 import { categories } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
-const categoryIcons = [Beef, GlassWater, Milk, Apple, ShoppingBasket, Fish];
-
 const cardVariants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.08, duration: 0.45, ease: "easeOut" },
+    transition: { delay: i * 0.06, duration: 0.4, ease: "easeOut" as const },
   }),
 };
 
 export function CategoriesSection() {
   return (
-    <section id="categories" className="bg-neutral-bg py-20 lg:py-24">
+    <section id="categories" className="py-16 sm:py-20 lg:py-24 bg-slate-50/50">
       <Container>
-        <SectionHeading
-          eyebrow="Browse Categories"
-          title="Explore 25,000+ Products"
-          description="From frozen meats to packaging supplies — find everything your business needs in one marketplace."
-        />
+        {/* Section Header */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10 lg:mb-12">
+          <div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 font-display tracking-tight">
+              Shop by Categories
+            </h2>
+            <p className="mt-1.5 text-xs sm:text-sm lg:text-base text-slate-500 font-normal">
+              Explore top categories and discover quality products
+            </p>
+          </div>
 
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <a
+            href="#all-categories"
+            className="inline-flex items-center gap-2 self-start sm:self-auto rounded-full border border-slate-200 bg-white px-5 py-2.5 text-xs sm:text-sm font-semibold text-slate-700 hover:text-orange hover:border-orange/40 hover:bg-orange/5 transition-all shadow-xs group"
+          >
+            View all Categories
+            <ChevronRight className="size-4 text-slate-400 group-hover:text-orange group-hover:translate-x-0.5 transition-all" />
+          </a>
+        </div>
+
+        {/* 6 Category Vertical Cards Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4 lg:gap-4.5 items-stretch">
           {categories.map((cat, i) => {
-            const Icon = categoryIcons[i];
             return (
               <motion.a
                 key={cat.name}
@@ -42,48 +52,57 @@ export function CategoriesSection() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-40px" }}
                 className={cn(
-                  "group relative flex items-start gap-4 rounded-2xl border border-border-light bg-white p-6 transition-all duration-300 hover:border-orange/30 hover:shadow-lg hover:shadow-orange/5 lg:p-8"
+                  "group relative flex flex-col justify-between rounded-2xl sm:rounded-3xl border-0 bg-[#F8FAFC] p-4 sm:p-5 transition-all duration-300 hover:bg-white hover:shadow-xl hover:shadow-orange/5"
                 )}
               >
-                {/* Icon */}
-                <div
-                  className={cn(
-                    "flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br text-white transition-transform duration-300 group-hover:scale-110",
-                    cat.color.replace(/from-\S+\s+to-\S+/, "from-orange to-orange/80")
-                  )}
-                >
-                  <Icon className="size-6" />
+                {/* Product Image - Completely borderless & fully contained */}
+                <div className="relative h-36 sm:h-40 lg:h-40 w-full flex items-center justify-center p-2 mb-3 sm:mb-4 border-0">
+                  <img
+                    src={cat.image}
+                    alt={cat.name}
+                    className="max-h-full max-w-full h-auto w-auto object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-105 pointer-events-none drop-shadow-xs"
+                  />
                 </div>
 
-                {/* Content */}
-                <div className="min-w-0 flex-1">
-                  <h3 className="text-lg font-bold text-navy font-display">
+                {/* Category Title & Stats Row */}
+                <div className="mt-auto">
+                  <h3 className="text-sm sm:text-base font-bold text-slate-900 font-display line-clamp-1 mb-4">
                     {cat.name}
                   </h3>
-                  <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
-                    <span className="font-semibold text-navy">
-                      {cat.productCount} Products
-                    </span>
-                    <span className="h-1 w-1 rounded-full bg-border-light" />
-                    <span>{cat.supplierCount} Suppliers</span>
+
+                  {/* Stats & Action Button Row */}
+                  <div className="flex items-center justify-between gap-1">
+                    <div className="flex items-center gap-2 sm:gap-2.5">
+                      <div>
+                        <span className="text-xs sm:text-sm font-bold text-slate-900 block leading-tight">
+                          {cat.productCount}
+                        </span>
+                        <span className="text-[10px] sm:text-xs text-slate-400 font-normal block mt-0.5 leading-tight">
+                          Products
+                        </span>
+                      </div>
+
+                      <div className="h-6 w-[1px] bg-slate-200/80" />
+
+                      <div>
+                        <span className="text-xs sm:text-sm font-bold text-slate-900 block leading-tight">
+                          {cat.supplierCount}
+                        </span>
+                        <span className="text-[10px] sm:text-xs text-slate-400 font-normal block mt-0.5 leading-tight">
+                          Suppliers
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Orange Circle Arrow Button */}
+                    <div className="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-orange text-white shadow-xs transition-all duration-300 group-hover:bg-orange/90 group-hover:scale-110">
+                      <ArrowRight className="size-3.5 sm:size-4" />
+                    </div>
                   </div>
                 </div>
-
-                {/* Arrow */}
-                <ArrowRight className="mt-1 size-5 shrink-0 text-muted-foreground transition-all duration-300 group-hover:translate-x-1 group-hover:text-orange" />
               </motion.a>
             );
           })}
-        </div>
-
-        <div className="mt-10 flex justify-center">
-          <Button
-            variant="outline"
-            className="rounded-lg border-border-light px-8 text-sm font-semibold text-navy hover:bg-white"
-          >
-            View All Categories
-            <ArrowRight className="ml-2 size-4" />
-          </Button>
         </div>
       </Container>
     </section>

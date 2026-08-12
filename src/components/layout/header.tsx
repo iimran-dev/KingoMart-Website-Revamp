@@ -37,8 +37,13 @@ export function Header() {
     >
       <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
         {/* Logo */}
-        <a href="/" className="flex-shrink-0">
-          <span className="font-display font-extrabold text-xl tracking-tight text-navy">
+        <a href="/" className="flex-shrink-0 flex items-center gap-2.5">
+          <img
+            src="https://store.kingomart.com/logo.svg"
+            alt="KingoMart Logo"
+            className="h-8 w-8 object-cover object-left shrink-0"
+          />
+          <span className={cn("font-display font-bold text-xl tracking-tight transition-colors", scrolled ? "text-navy" : "text-white")}>
             Kingo<span className="text-orange">Mart</span>
           </span>
         </a>
@@ -57,7 +62,7 @@ export function Header() {
                 'flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-md transition-colors',
                 scrolled
                   ? 'text-gray-700 hover:text-navy hover:bg-gray-100'
-                  : 'text-navy/80 hover:text-navy hover:bg-white/10'
+                  : 'text-white/90 hover:text-white hover:bg-white/10'
               )}
             >
               Categories
@@ -75,10 +80,10 @@ export function Header() {
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 8 }}
-                  transition={{ duration: 0.2, ease: 'easeOut' }}
+                  transition={{ duration: 0.2, ease: 'easeOut' as const }}
                   className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[680px]"
                 >
-                  <div className="bg-white rounded-xl shadow-xl border border-gray-100 p-6 grid grid-cols-3 gap-8">
+                  <div className="bg-white rounded-xl shadow-xl border border-gray-100 p-6 grid grid-cols-3 gap-8 text-left">
                     {megaMenuCategories.map((column) => (
                       <div key={column.title}>
                         <h3 className="font-display font-semibold text-sm text-navy mb-3">
@@ -116,7 +121,7 @@ export function Header() {
                 'px-3 py-2 text-sm font-medium rounded-md transition-colors',
                 scrolled
                   ? 'text-gray-700 hover:text-navy hover:bg-gray-100'
-                  : 'text-navy/80 hover:text-navy hover:bg-white/10'
+                  : 'text-white/90 hover:text-white hover:bg-white/10'
               )}
             >
               {link.label}
@@ -132,17 +137,17 @@ export function Header() {
               'flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md transition-colors',
               scrolled
                 ? 'text-gray-700 hover:text-navy hover:bg-gray-100'
-                : 'text-navy/80 hover:text-navy hover:bg-white/10'
+                : 'text-white/90 hover:text-white hover:bg-white/10'
             )}
           >
             <Globe className="size-4" />
             <span>EN</span>
           </button>
 
-          <Button variant="ghost" className={scrolled ? 'text-gray-700 hover:text-navy' : 'text-navy/80 hover:text-navy'}>
+          <Button variant="ghost" className={scrolled ? 'text-gray-700 hover:text-navy' : 'text-white/90 hover:text-white hover:bg-white/10'}>
             Login
           </Button>
-          <Button variant="outline">Register</Button>
+          <Button variant="outline" className={scrolled ? '' : 'border-white/30 text-white bg-white/5 hover:bg-white/20 hover:text-white'}>Register</Button>
           <Button className="bg-orange-600 hover:bg-orange-700 text-white font-semibold shadow-sm">
             Start Buying
           </Button>
@@ -157,7 +162,7 @@ export function Header() {
                   'p-2 rounded-md transition-colors',
                   scrolled
                     ? 'text-gray-700 hover:bg-gray-100'
-                    : 'text-navy hover:bg-white/10'
+                    : 'text-white hover:bg-white/10'
                 )}
                 aria-label="Open navigation menu"
               >
@@ -167,9 +172,16 @@ export function Header() {
             <SheetContent side="left" className="w-80 overflow-y-auto">
               <SheetHeader className="pt-8 pb-4">
                 <SheetTitle>
-                  <span className="font-display font-extrabold text-xl tracking-tight text-navy">
-                    Kingo<span className="text-orange">Mart</span>
-                  </span>
+                  <a href="/" className="flex items-center gap-2.5">
+                    <img
+                      src="https://store.kingomart.com/logo.svg"
+                      alt="KingoMart Logo"
+                      className="h-8 w-8 object-cover object-left shrink-0"
+                    />
+                    <span className="font-display font-bold text-xl tracking-tight text-navy">
+                      Kingo<span className="text-orange">Mart</span>
+                    </span>
+                  </a>
                 </SheetTitle>
               </SheetHeader>
 

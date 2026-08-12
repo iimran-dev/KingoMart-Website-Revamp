@@ -18,7 +18,7 @@ export function NewsletterSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.6, ease: "easeOut" as const }}
           className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-600 via-orange-500 to-green-500 px-6 py-16 sm:px-12 lg:py-20"
         >
           {/* Decorative Circles */}

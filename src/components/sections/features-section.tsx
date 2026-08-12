@@ -1,94 +1,104 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TrendingDown, Share2, BadgeCheck, BarChart3, ArrowRight } from "lucide-react";
+import { TrendingDown, Share2, ShieldCheck, BarChart3 } from "lucide-react";
 import { Container } from "@/components/layout/container";
-import { SectionHeading } from "@/components/ui/section-heading";
-import { Button } from "@/components/ui/button";
 import { features } from "@/lib/data";
-import { cn } from "@/lib/utils";
 
 const iconMap = {
   TrendingDown,
   Share2,
-  BadgeCheck,
+  BadgeCheck: ShieldCheck,
   BarChart3,
 } as const;
 
 type IconKey = keyof typeof iconMap;
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.12, duration: 0.5, ease: "easeOut" },
-  }),
-};
-
 export function FeaturesSection() {
   return (
-    <section id="features" className="bg-white py-20 lg:py-24">
+    <section id="features" className="py-16 sm:py-20 lg:py-24 bg-white">
       <Container>
-        <SectionHeading
-          eyebrow="Platform Features"
-          title="Everything You Need to Trade Globally"
-          description="A complete B2B platform built to simplify sourcing, logistics, and payments for African importers."
-        />
+        {/* Section Heading */}
+        <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-display tracking-tight mb-6 sm:mb-8">
+          Why Buy Through KingoMart?
+        </h2>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2">
-          {features.map((feature, i) => {
-            const Icon = iconMap[feature.icon as IconKey];
-            return (
-              <motion.div
-                key={feature.title}
-                custom={i}
-                variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-60px" }}
-                className={cn(
-                  "group relative overflow-hidden rounded-2xl border border-border-light bg-white p-6 transition-all duration-300 hover:border-orange/30 hover:shadow-lg hover:shadow-orange/5 lg:p-8",
-                  i === 0 && "sm:col-span-2"
-                )}
-              >
-                <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-8">
-                  {/* Icon */}
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-orange/10 text-orange transition-colors group-hover:bg-orange group-hover:text-white">
-                    <Icon className="size-7" />
-                  </div>
+        {/* Features Row & Side Banner Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          {/* Left Features Container (4 Columns) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="lg:col-span-7 xl:col-span-7 rounded-2xl sm:rounded-3xl border border-slate-100 bg-[#F8FAFC] p-6 sm:p-8 flex flex-col justify-center"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 divide-y sm:divide-y-0 md:divide-x divide-slate-200/70">
+              {features.map((feature, index) => {
+                const Icon = iconMap[feature.icon as IconKey] || TrendingDown;
+                return (
+                  <div
+                    key={feature.title}
+                    className={`flex flex-col pt-4 sm:pt-0 ${
+                      index !== 0 ? "md:pl-5 lg:pl-6" : ""
+                    }`}
+                  >
+                    {/* Orange Line Icon Box */}
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white border border-slate-200/60 text-orange shadow-2xs mb-4">
+                      <Icon className="size-5" />
+                    </div>
 
-                  {/* Content */}
-                  <div className="min-w-0 flex-1">
-                    <h3 className="text-xl font-bold text-navy font-display">
+                    {/* Feature Title & Subtitle */}
+                    <h3 className="text-sm sm:text-base font-bold text-slate-900 font-display leading-snug mb-1.5">
                       {feature.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    <p className="text-xs text-slate-500 font-normal leading-relaxed">
                       {feature.description}
                     </p>
-                    {/* Metric badge */}
-                    <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-success/10 px-3.5 py-1.5 text-sm font-semibold text-success">
-                      <span className="h-1.5 w-1.5 rounded-full bg-success" />
-                      {feature.metric}
-                    </div>
                   </div>
-                </div>
+                );
+              })}
+            </div>
+          </motion.div>
 
-                {/* Decorative gradient blob */}
-                <div className="pointer-events-none absolute -right-8 -bottom-8 h-32 w-32 rounded-full bg-orange/5 opacity-0 blur-2xl transition-opacity group-hover:opacity-100" />
-              </motion.div>
-            );
-          })}
-        </div>
-
-        <div className="mt-12 flex justify-center">
-          <Button
-            size="lg"
-            className="h-12 rounded-lg bg-orange px-8 text-base font-semibold text-white shadow-lg shadow-orange/25 hover:bg-orange/90"
+          {/* Right Side Banner Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+            className="lg:col-span-5 xl:col-span-5 relative overflow-hidden rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between min-h-[260px] sm:min-h-[300px] shadow-md group"
           >
-            Explore All Features
-            <ArrowRight className="ml-2 size-5" />
-          </Button>
+            {/* Background Side Picture */}
+            <img
+              src="/global-logistics-banner.png"
+              alt="From Global Supplier to Your Warehouse"
+              className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none transition-transform duration-500 group-hover:scale-105"
+            />
+
+            {/* Dark Gradient Overlay for Text Clarity */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#06152a]/90 via-[#06152a]/65 to-transparent z-0 pointer-events-none" />
+
+            {/* Banner Header Text */}
+            <div className="relative z-10 max-w-[260px] sm:max-w-[300px]">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white font-display leading-tight tracking-tight">
+                From Global Supplier to Your Warehouse
+              </h3>
+              <p className="mt-2 text-xs sm:text-sm text-slate-200/90 font-normal leading-relaxed">
+                A seamless journey, handled end to end.
+              </p>
+            </div>
+
+            {/* Learn More Action Button */}
+            <div className="relative z-10 mt-6">
+              <button
+                type="button"
+                className="inline-flex items-center justify-center rounded-xl bg-orange hover:bg-orange/90 text-white font-semibold px-6 py-2.5 text-xs sm:text-sm transition-all cursor-pointer shadow-md"
+              >
+                Learn More
+              </button>
+            </div>
+          </motion.div>
         </div>
       </Container>
     </section>

@@ -27,20 +27,21 @@ const cardVariants = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.08, duration: 0.45, ease: "easeOut" },
+    transition: { delay: i * 0.08, duration: 0.45, ease: "easeOut" as const },
   }),
 };
 
 export function IndustriesSection() {
   return (
-    <section id="industries" className="bg-white py-20 lg:py-24">
+    <section id="industries" className="bg-white py-20 sm:py-24 lg:py-28">
       <Container>
         <SectionHeading
           eyebrow="Industries We Serve"
           title="Built for Every Business Type"
+          description="Tailored B2B procurement, direct pricing, and bulk delivery solutions built specifically for your sector."
         />
 
-        <div className="mt-14 grid grid-cols-2 gap-6 md:grid-cols-3">
+        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {industries.map((industry, i) => {
             const Icon = iconMap[industry.icon];
             return (
@@ -51,18 +52,18 @@ export function IndustriesSection() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-40px" }}
-                className="group rounded-2xl border border-border-light bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-orange/30 hover:shadow-lg hover:shadow-orange/5 lg:p-8"
+                className="group rounded-2xl border border-slate-100 bg-[#F8FAFC] p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-orange/30 hover:bg-white hover:shadow-xl hover:shadow-orange/5"
               >
                 {/* Icon */}
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange/10 text-orange transition-colors group-hover:bg-orange group-hover:text-white">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange/10 text-orange transition-colors group-hover:bg-orange group-hover:text-white mb-5">
                   {Icon && <Icon className="size-6" />}
                 </div>
 
                 {/* Content */}
-                <h3 className="mt-4 font-display text-lg font-bold text-navy">
+                <h3 className="font-display text-lg font-bold text-slate-900 mb-3">
                   {industry.name}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-3.5 text-sm sm:text-base leading-relaxed text-slate-500 font-normal">
                   {industry.description}
                 </p>
               </motion.div>
